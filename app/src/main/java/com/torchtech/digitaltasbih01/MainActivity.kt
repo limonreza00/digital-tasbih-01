@@ -1,6 +1,8 @@
 package com.torchtech.digitaltasbih01
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +18,22 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val countDisplay = findViewById<TextView>(R.id.countDisplay)
+        val plusButton = findViewById<Button>(R.id.plusButton)
+        val resetButton = findViewById<Button>(R.id.resetButton)
+
+        var i =0
+        countDisplay.text=getString(R.string.count,i)
+
+        plusButton.setOnClickListener {
+            i++
+            countDisplay.text=getString(R.string.count,i)
+        }
+
+        resetButton.setOnClickListener {
+            i=0
+            countDisplay.text=getString(R.string.count,i)
+        }
+
     }
 }
